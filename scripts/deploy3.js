@@ -5,8 +5,8 @@ async function main() {
     const [deployer] = await ethers.getSigners();
     console.log("deployer account:" , deployer.address)
     try {
-        const contractFactory = await ethers.getContractFactory("FlowMining")
-        contract = await contractFactory.deploy()
+        const contractFactory = await ethers.getContractFactory("Aairdrop")
+        contract = await contractFactory.deploy("0xF5D8694cb6C26C2E6549f562366ae807E6F699d3")
         await contract.waitForDeployment()
         console.log('contract address:', contract.target);
         console.log('deployer:', deployer.address);
@@ -20,6 +20,7 @@ async function main() {
     try {
       await run("verify:verify",{
         address : contract.target,
+        constructorArguments:["0xF5D8694cb6C26C2E6549f562366ae807E6F699d3"], //构造函数
       })
 
       console.log("Verify contract successfully")

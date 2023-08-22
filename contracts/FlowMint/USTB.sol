@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract USTB is Ownable, ERC20 {
     constructor() ERC20("USTB", "B") { 
-        _mint(msg.sender, 1e10 ether);
+        _mint(msg.sender, 1e18 ether);
     }
 
     function mint(address addr_,uint amount_) external onlyOwner  returns (bool){

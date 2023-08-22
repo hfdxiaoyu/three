@@ -17,10 +17,10 @@ module.exports = {
       },{
         version : "0.8.0",
         settings:{
-          // optimizer: {
-          //     enabled: true, // 开启优化器
-          //     runs: 200,
-          //   }
+          optimizer: {
+              enabled: true, // 开启优化器
+              runs: 200,
+            }
           }
       },{
         version : "0.6.6",
@@ -84,11 +84,20 @@ module.exports = {
       chainId: 97, // Binance Smart Chain Testnet 的 Chain ID
       accounts: [process.env.bscTestnetprivatekey], // 用于测试网络的私钥列表 
       gasPrice: 10000000000
+    },
+    bscNet: {
+      // Binance Smart Chain net 配置
+      url: "https://bsc-dataseed.binance.org/", // Binance Smart Chain RPC 地址
+      chainId: 56, // Binance Smart Chain 的 Chain ID
+      accounts: [process.env.bscNetprivatekey], // 用于主网的私钥列表 
+      gasPrice: 10000000000  //这个gas费太高了
     }
   },
   etherscan: {
     apiKey:{
-      bscTestnet : process.env.bscTestnetapikey //
+      bscTestnet : process.env.bscTestnetapikey, 
+      bscNet : process.env.bscTestnetapikey, //主网 apikey 有问题
+      bsc : process.env.bscTestnetapikey, //主网 apikey 有问题
     }
   }
 };
