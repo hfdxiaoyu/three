@@ -10,11 +10,6 @@ contract Aairdrop is Ownable {
     mapping (address => uint) public airDropAmount; //每个地址空投的数量
     mapping (address => bool) public admin;//管理员
 
-    struct dropInfo {
-        address addr;
-        uint amount;
-    }
-
     constructor(address da_){
         DA = IERC20(da_);
         admin[msg.sender] = true;
@@ -23,12 +18,13 @@ contract Aairdrop is Ownable {
     function setAdmin(address addr_,bool b_) external onlyOwner {
         admin[addr_] = b_;
     }
-    
+
     //空投
-    function airDrop(dropInfo[] calldata info) external isAdmin {
-        for (uint i = 0; i < info.length; i++) {
-            airDropAmount[info[i].addr] = info[i].amount;
-            DA.transfer(info[i].addr,info[i].amount);
+    function airDrop(address[] calldata addrs_,uint[] calldata amounts_) external isAdmin{
+        require(addrs_.length == amounts_.length,"data nums error");
+        for (uint i = 0; i < addrs_.length; i++) {
+            airDropAmount[addrs_[i]] = amounts_[i];
+            DA.transfer(addrs_[i],amounts_[i]);
         }
     }
 

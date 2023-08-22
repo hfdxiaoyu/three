@@ -20,7 +20,7 @@ async function main() {
     try {
       await run("verify:verify",{
         address : contract.target,
-        constructorArguments:["0xF5D8694cb6C26C2E6549f562366ae807E6F699d3"], //构造函数
+        constructorArguments:["0xF5D8694cb6C26C2E6549f562366ae807E6F699d3"], //构造函数,不需要的时候需要注释掉
       })
 
       console.log("Verify contract successfully")
