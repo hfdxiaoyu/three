@@ -96,8 +96,8 @@ module.exports = {
   etherscan: {
     apiKey:{
       bscTestnet : process.env.bscTestnetapikey, 
-      bscNet : process.env.bscTestnetapikey, //主网 apikey 有问题
-      bsc : process.env.bscTestnetapikey, //主网 apikey 有问题
+      bscNet : process.env.bscNetapikey, //主网 apikey 没验证过
+      bsc : process.env.bscNetapikey, //主网 apikey 
     }
   }
 };
