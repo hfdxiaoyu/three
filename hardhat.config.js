@@ -9,10 +9,10 @@ module.exports = {
       {
         version : "0.8.17",
         settings:{
-          // optimizer: {
-          //     enabled: true, // 开启优化器
-          //     runs: 200,
-          //   }
+          optimizer: {
+              enabled: true, // 开启优化器
+              runs: 200,
+            }
           }
       },{
         version : "0.8.0",
@@ -25,51 +25,51 @@ module.exports = {
       },{
         version : "0.6.6",
         settings:{
-          // optimizer: {
-          //     enabled: true, // 开启优化器
-          //     runs: 200,
-          //   }
+          optimizer: {
+              enabled: true, // 开启优化器
+              runs: 200,
+            }
           }
       },{
         version : "0.6.2",
         settings:{
-          // optimizer: {
-          //     enabled: true, // 开启优化器
-          //     runs: 200,
-          //   }
+          optimizer: {
+              enabled: true, // 开启优化器
+              runs: 200,
+            }
           }
       },{
         version : "0.6.0",
         settings:{
-          // optimizer: {
-          //     enabled: true, // 开启优化器
-          //     runs: 200,
-          //   }
+          optimizer: {
+              enabled: true, // 开启优化器
+              runs: 200,
+            }
           }
       },{
         version : "0.5.16",
         settings:{
-          // optimizer: {
-          //     // enabled: true, // 开启优化器
-          //     runs: 200,
-          //   }
+          optimizer: {
+              // enabled: true, // 开启优化器
+              runs: 200,
+            }
           }
       },{
         version : "0.5.0",
         settings:{
-          // optimizer: {
-          //     enabled: true, // 开启优化器
-          //     runs: 200,
-          //   }
+          optimizer: {
+              enabled: true, // 开启优化器
+              runs: 200,
+            }
           }
       },
       {
         version : "0.4.18",
         settings:{
-          // optimizer: {
-          //     enabled: true, // 开启优化器
-          //     runs: 200,
-          //   }
+          optimizer: {
+              enabled: true, // 开启优化器
+              runs: 200,
+            }
           }
       }
     
