@@ -16,7 +16,7 @@ describe('swapXx',function(){
         const pairfactory = await ethers.getContractFactory("UniswapV2Pair")
         pairs =  await pairfactory.deploy()
 
-        const WBNB = await ethers.getContractFactory("WBNB")
+        const WBNB = await ethers.getContractFactory("WBNB") //
         wbnb =  await WBNB.deploy()
 
         const fafactory1 = await ethers.getContractFactory("UniswapV2Factory")
@@ -34,11 +34,12 @@ describe('swapXx',function(){
         control = await contyrolfactory.deploy(tu.target,xx.target,router.target,sender[0].address)
         
         // 给 router 合约授权额度
+        await wbnb.approve(router.target,parseEther('10000000000'))
         await tu.approve(router.target,parseEther('1000000000000'))
         await xx.approve(router.target,parseEther('1000000000000'))
         
         //增加流动性 
-        await router.addLiquidity(tu.target,xx.target,parseEther("10000"),parseEther("10000"),0,0,sender[0].address,1693466871)
+        await router.addLiquidity(tu.target,xx.target,parseEther("10000"),parseEther("10000"),0,0,sender[0].address,1696145271)
         pairs1 = await factory1.getPair(tu.target,xx.target)
         // console.log('pairs :',await pairs1)
         await xx.setPair(pairs1,true)
@@ -57,12 +58,12 @@ describe('swapXx',function(){
     })
 
     it("测试只添加一边的流动性",async function(){
-        await router.addLiquidity(tu.target,xx.target,parseEther("1"),parseEther("100"),0,0,sender[0].address,1693466871)
+        await router.addLiquidity(tu.target,xx.target,parseEther("1"),parseEther("100"),0,0,sender[0].address,1696145271)
         console.log(formatEther(await tu.balanceOf(pairs1)),formatEther(await xx.balanceOf(pairs1)))
     })
 
     it("买是否扣除3%手续费",async function(){
-        await router.swapExactTokensForTokensSupportingFeeOnTransferTokens(parseEther('100'),0,[tu.target,xx.target],sender[0],1693466871)
+        await router.swapExactTokensForTokensSupportingFeeOnTransferTokens(parseEther('100'),0,[tu.target,xx.target],sender[0],1696145271)
         console.log('买入',formatEther(await xx.balanceOf(control.target)))
         console.log(formatEther(await tu.balanceOf(pairs1)),formatEther(await xx.balanceOf(pairs1)))
         // console.log('lp:',formatEther(await pairs.balanceOf(sender[1])))
@@ -70,7 +71,7 @@ describe('swapXx',function(){
     })
 
     it("卖出是否扣除3%手续费",async function(){
-        await router.swapExactTokensForTokensSupportingFeeOnTransferTokens(parseEther('100'),0,[xx.target,tu.target],sender[0],1693466871)
+        await router.swapExactTokensForTokensSupportingFeeOnTransferTokens(parseEther('100'),0,[xx.target,tu.target],sender[0],1696145271)
         console.log('卖出',formatEther(await xx.balanceOf(control.target)))
         console.log(formatEther(await tu.balanceOf(pairs1)),formatEther(await xx.balanceOf(pairs1)))
     })
@@ -90,6 +91,15 @@ describe('swapXx',function(){
         // console.log('卖出',formatEther(await xx.balanceOf(control.target)))
         // console.log(await lp.balanceOf(control.target))
         console.log('lp:',formatEther(await lp.balanceOf(control.target)))
+
+        // a1,a2,a3 = await router.addLiquidity(tu.target,xx.target,parseEther("10000"),parseEther("10000"),0,0,sender[0].address,1693466871)
+        // console.log("得到的返回值是：")
+    })
+
+    it("测试添加主链币流动性",async function(){
+        // await router.addLiquidityETH(xx.target,parseEther("1000"),parseEther("100"),parseEther("10"),sender[0].address,1696145271)
+        // console.log("添加主链币流动性的结果是：")
+        console.log("wbnb的余额是：",await wbnb.balanceOf(wbnb.target))
     })
 
 })
