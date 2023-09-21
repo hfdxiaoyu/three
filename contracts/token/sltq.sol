@@ -3,7 +3,7 @@ pragma solidity ^0.8.18;
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract SLT is Ownable {
+contract SLTQ is Ownable {
     IERC20 public usdt;
     IERC20 public slt;
     struct UserInfo {
@@ -76,7 +76,7 @@ contract SLT is Ownable {
         return guess;
     }
 
-    function temp(uint256 index) public pure returns(uint256) {
+    function temp1(uint256 index) public pure returns(uint256) {
         if (index == 1) {
             return 0;
         }
