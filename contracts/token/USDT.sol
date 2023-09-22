@@ -8,9 +8,9 @@ contract USDT is Ownable, ERC20 {
         _mint(msg.sender, 1e18 ether);
     }
 
-    function decimals() public view override returns (uint8) {
-        return 6;
-    }
+    // function decimals() public view override returns (uint8) {
+    //     return 6;
+    // }
 
     function mint(address addr_,uint amount_) external onlyOwner  returns (bool){
         require(addr_ != address(0),"The address cannot be zero");
