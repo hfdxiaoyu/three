@@ -1,4 +1,5 @@
 require("@nomicfoundation/hardhat-toolbox");
+require('@openzeppelin/hardhat-upgrades'); //引入可升级插件
 const dotenv =  require("dotenv")
 const config = dotenv.config()
 

@@ -80,7 +80,7 @@ contract SltGame1 is OwnableUpgradeable {
     event Bond(address indexed player, address indexed invitor); // 绑定直推关系事件
     event FirstBuy(address indexed buyer, address indexed invitor, uint indexed amount); //初次购买
     //event只能有三个变量，扫下面这个事件的时候把msg.sender也扫一下，就是buyer
-    event GeneralBuyEvent(address indexed winner, uint indexed amount, uint indexed targetLevel); // 升级购买,如果amount是0，说明烧伤了
+    event GeneralBuyEvent(address indexed winner, uint indexed amount, uint indexed targetLevel); // 升级购买,如果amount是0，说明烧伤了 targetLevel等级
     event ClaimSLT(address indexed user, uint indexed claimtype, uint indexed amount); // type1为购买等级的slt领取，2为直推奖励的slt领取
     event SetDividends(address indexed admin, uint indexed currentRound, uint indexed amount);//记录设置分红
     event ClaimDivdends(address indexed user, uint indexed currentRound, uint indexed amount);//记录领取分红
